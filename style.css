@@ -1,0 +1,85 @@
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* กำหนดให้มีการแสดงแถว 4 ตามความกว้างของ container และมีขนาดเท่ากัน */
+    gap: 20px;
+    justify-content: center; /* จัดให้สินค้าอยู่กึ่งกลางของหน้าเว็บ */
+    max-width: 1200px; /* จำกัดความกว้างของ container */
+    margin: 0 auto; /* จัดให้ grid อยู่ตรงกลาง */
+    padding: 20px; /* เพิ่ม padding เพื่อป้องกันการกระจายของ grid */
+}
+
+.small-product-card {
+    width: 100%; /* ปรับขนาดการ์ดให้เต็มกว่าเดิม */
+    padding: 10px; /* ลด padding เพื่อให้มีพื้นที่เหลือให้กับข้อความ */
+    border: 2px solid #8a2be2; /* เปลี่ยนเป็น solid border สีม่วงสว่าง */
+    border-radius: 10px; /* เพิ่มขอบมนเพื่อให้มีเส้นขอบมนขึ้น */
+    text-align: center; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบา */
+    transition: transform 0.3s, box-shadow 0.3s; /* เพิ่ม transition เมื่อมีการเคลื่อนไหวและ hover */
+}
+
+.small-product-card:hover {
+    transform: translateY(-5px); /* ย้ายการ์ดขึ้นไปเล็กน้อยเมื่อ hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ hover */
+}
+
+.small-product-card img {
+    max-width: 100%; 
+    border-radius: 5px; 
+}
+
+.small-product-card h3 {
+    font-size: 16px; 
+    margin-top: 10px; 
+}
+
+.small-product-card p {
+    font-size: 14px; 
+    margin-top: 5px; 
+}
+
+.small-product-card button {
+    background-color: #8a2be2; /* เปลี่ยนสีปุ่มเป็นสีม่วง */
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.small-product-card button:hover {
+    background-color: #6a1b9a; /* ปรับสีปุ่มเมื่อ hover */
+}
+
+/* ปรับแต่งสีพื้นหลังของเว็บไซต์เป็นสีดำ */
+body {
+    background-color: #000;
+    color: #fff; /* เปลี่ยนสีข้อความเป็นขาว */
+}
+
+/* ปรับแต่ง Navbar เป็นสีม่วง */
+.navbar {
+    background-color: #8a2be2; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size:18px;
+    color: #fff; /* เปลี่ยนสีข้อความเป็นขาว */
+    margin-right: 10px;
+    transition: color 0.3s;
+    }
+    
+.navbar-nav .nav-link:hover {
+    color: #ff00ff; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
