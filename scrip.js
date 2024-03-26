@@ -79,3 +79,69 @@ document.getElementById("micstands").addEventListener("click", function (event) 
     event.preventDefault();
     displayProducts("micstands");
 });
+
+
+
+
+// Function to search products based on keyword
+function searchProducts(keyword) {
+    keyword = keyword.trim().toLowerCase(); // Convert keyword to lowercase for case-insensitive comparison
+
+    // Array to store search results
+    const searchResults = [];
+
+    // Loop through products in all categories to search for the keyword
+    Object.keys(products).forEach((category) => {
+        products[category].forEach((product) => {
+            // Check if the product name contains the keyword
+            if (product.name.toLowerCase().includes(keyword)) {
+                // Add products that match the condition to the search results array
+                searchResults.push(product);
+            }
+        });
+    });
+
+    // Display search results
+    displaySearchResults(searchResults);
+}
+
+// Function to display search results
+function displaySearchResults(results) {
+    const productList = document.getElementById("product-list");
+    productList.innerHTML = ""; // Clear previous products
+
+    // If no results found
+    if (results.length === 0) {
+        const noResultElement = document.createElement("div");
+        noResultElement.textContent = "ไม่พบผลลัพธ์สำหรับคำค้นหานี้";
+        productList.appendChild(noResultElement);
+        return;
+    }
+
+    results.forEach((product) => {
+        const productElement = document.createElement("div");
+        productElement.classList.add("small-product-card");
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>ราคา: ${product.price} บาท</p>
+            <button><a class="btn-link" href="${product.link}" target="_blank">สั่งซื้อ</a></button>
+        `;
+        productList.appendChild(productElement);
+    });
+}
+
+// Event listener for search input
+document.getElementById("searchInput").addEventListener("input", function () {
+    const searchInput = this.value;
+    if (searchInput.trim() === "") {
+        // If search input is empty, display all products
+        displayProducts("microphones"); // Assuming you want to display microphones by default
+    } else {
+        // If search input is not empty, perform search
+        searchProducts(searchInput);
+    }
+});
+
+
+
